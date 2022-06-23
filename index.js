@@ -5,11 +5,10 @@ function addition(result = '') {
     let count = result ? 1 : 0;
 
     while (true) {
-        number = prompt(count >= 1 ? 'Enter the next number to add. \n Press \'Enter\' if you do not want to enter another number: ' : 'Enter the first number to add: ');
+        let number = prompt(count >= 1 ? 'Enter the next number to add. \n Press \'Enter\' if you do not want to enter another number: ' : 'Enter the first number to add: ');
         if (!number) break;
-        try {
-            number = parseFloat(number);
-        } catch (e) {
+        number = parseFloat(number);
+        if (isNaN(number)) {
             alert("You made an invalid input. Try again.")
             continue;
         }
@@ -26,11 +25,10 @@ function subtraction (result = '') {
     let count = result ? 1 : 0;
 
     while (true) {
-        number = prompt(count >= 1 ? 'Enter the number to subtract. \n Press \'Enter\' if you do not want to enter another number: ' : 'Enter the number to subtract from: ');
-        if (!number) break;
-        try {
-            number = parseFloat(number);
-        } catch (e) {
+        let number = prompt(count >= 1 ? 'Enter the number to subtract. \n Press \'Enter\' if you want to default to 0: ' : 'Enter the number to subtract from: ');
+        if (!number && numbersToSub.length > 0) break;
+        number = parseFloat(number);
+        if (isNaN(number)) {
             alert("You made an invalid input. Try again.")
             continue;
         }
@@ -40,7 +38,7 @@ function subtraction (result = '') {
         if (count === 2) break;
     }
 
-    return numbersToSub[0] - numbersToSub[1];
+    return numbersToSub.length < 2 ? numbersToSub[0] : numbersToSub[0] - numbersToSub[1];
 }
 
 function multiply (result= '') {
@@ -48,11 +46,10 @@ function multiply (result= '') {
     let count = result ? 1 : 0;
 
     while (true) {
-        number = prompt(count >= 1 ? 'Enter the next number to multiply. \n Press \'Enter\' if you want to default to one: ' : 'Enter the first number to multiply : ');
+        let number = prompt(count >= 1 ? 'Enter the next number to multiply. \n Press \'Enter\' if you want to default to 1: ' : 'Enter the first number to multiply : ');
         if (!number) break;
-        try {
-            number = parseFloat(number);
-        } catch (e) {
+        number = parseFloat(number);
+        if (isNaN(number)) {
             alert("You made an invalid input. Try again.")
             continue;
         }
@@ -70,11 +67,10 @@ function division (result= '') {
     let count = result ? 1 : 0;
 
     while (true) {
-        number = prompt(count >= 1 ? 'Enter the number to divide by. \n Press \'Enter\' if you want to default to one: ' : 'Enter the number to divide: ');
-        if (!number) break;
-        try {
-            number = parseFloat(number);
-        } catch (e) {
+        let number = prompt(count >= 1 ? 'Enter the number to divide by. \n Press \'Enter\' if you want to default to 1: ' : 'Enter the number to divide: ');
+        if (!number && numbersToSub.length > 0) break;
+        number = parseFloat(number);
+        if (isNaN(number)) {
             alert("You made an invalid input. Try again.")
             continue;
         }
@@ -84,7 +80,7 @@ function division (result= '') {
         if (count === 2) break;
     }
 
-    return numbersToDivide[0]/numbersToDivide[1];
+    return numbersToDivide.length < 2 ? numbersToDivide[0] : numbersToDivide[0]/numbersToDivide[1];
 }
 
 function entry () {
