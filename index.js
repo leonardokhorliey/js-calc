@@ -102,11 +102,11 @@ function entry () {
 
         if (!isNaN(prevResult)) {
             console.log(prevResult);
-            options = prompt('Use previous result? (Y/N): ').toLowerCase();
+            options = prompt(`You have a previous result of ${prevResult}. Use it? (Y/N): `).toLowerCase();
             
             while (!['y', 'n'].includes(options)) {
                 alert('Invalid Selection. Try again.');
-                options = prompt('Use previous result? (Y/N): ').toLowerCase();
+                options = prompt(`You have a previous result of ${prevResult}. Use it? (Y/N): `).toLowerCase();
             }
         }
 
